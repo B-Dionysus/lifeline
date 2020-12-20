@@ -2,12 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const eventSchema = new Schema({
-  userId: {type: Number, required:true},
-  startData:{type: Number, required:true},
-  endDate: Number,
+  userId: {type: String, required:true},
+  startDate:{type: Date, required:true},
+  endDate: Date,
   desc: String,
-  title: String,
-  briefTitle:{type: String, required:true},
+  title:{type: String, required:true},
   tags:[String],
   private: Boolean
 });

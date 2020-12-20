@@ -3,7 +3,10 @@ const eventController = require("../../controllers/eventController");
 
 // Matches with "/api/books"
 router.route("/")
-  .get(eventController.findAll)
+  .get(eventController.findAll);
+
+  router.route("/create")
+    .post(eventController.create);
 //  .post(booksController.create);
 
 // Matches with "/api/books/:id"

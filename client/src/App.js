@@ -16,7 +16,7 @@ import Alert from "./utils/Alerts";
 // Pages
 import Landing from "./pages/Landing";
 import Test from "./pages/Test";
-
+import Admin from "./pages/Admin";
 // Put login token in local storage
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -35,7 +35,8 @@ function App() {
                   <Route exact path="/" component={Landing} />   
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />            
-                  <PrivateRoute exact path="/test" component={Test} />        
+                  <PrivateRoute exact path="/test" component={Test} />    
+                  <PrivateRoute exact path="/admin" component={Admin} />        
               </Router>
           </AlertState>
         </AuthState>

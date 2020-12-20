@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import API from "../utils/API";
-
+import NavBar from "../components/NavBar";
 
 export default function Test(){
     const [events, setEvents] = useState([]);
@@ -19,6 +19,8 @@ export default function Test(){
 
     return(
         <>
+        
+      <NavBar />
             {events.map((event, index)=>(
                <div key={index}> {event.briefTitle}</div>
             ))

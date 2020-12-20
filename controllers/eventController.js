@@ -5,11 +5,19 @@ module.exports = {
         
         
         db.find({userId:userId}, (err, data)=>{
-            
+           if(err) 
+                res.status(500).json({ msg: err });             
+            else res.json(data)
+        })
+    },
+    create: function(req, res){
+        console.log(req.body)
+        db.create(req.body, (err, data)=>{
+            console.log(err);
             
             if(err) 
                 res.status(500).json({ msg: err });             
-            else res.json(data)
+            else res.json(data);
         })
     }
 };
