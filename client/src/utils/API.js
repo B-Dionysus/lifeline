@@ -5,5 +5,8 @@ export default{
     },
     createEvent:function(event){
         return axios.post("api/events/create", event)
+    },
+    updateTags:function(tags){
+        return axios.post("api/events/updateTags", tags);
     }
 };

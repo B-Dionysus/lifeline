@@ -1,4 +1,4 @@
-import React, {useState, useContext} from "react";
+import React, {useContext} from "react";
 import API from "../utils/API";
 import NavBar from "../components/NavBar";
 import AuthContext from "../context/auth/authContext";
@@ -16,12 +16,18 @@ function saveEvent(e){
     event.userId=e.target.userId.value;
     API.createEvent(event)
     .then(res=>{
-        console.log(res);
-        
+      if(res.status==200){
+        console.log("Successfully saved.");
+        API.updateTags(event)
+        .then(res=>{
+          console.log(`Tags: ${res.success}`);
+        });
+      }
+      else{
+        console.log(`Error saving event! ${res}`);    
+      }
     })
 }
-
-
 export default function Test(){
     const authContext = useContext(AuthContext);
     const { user } = authContext;
