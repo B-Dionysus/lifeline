@@ -3,7 +3,8 @@ const eventController = require("../../controllers/eventController");
 const tagController = require("../../controllers/tagController");
 // Matches with "/api/books"
 router.route("/")
-  .get(eventController.findAll);
+  .get(eventController.findAll)
+  .post(eventController.findAll);
 
   router.route("/create")
     .post(eventController.create);

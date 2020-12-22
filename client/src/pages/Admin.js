@@ -2,7 +2,9 @@ import React, {useContext} from "react";
 import API from "../utils/API";
 import NavBar from "../components/NavBar";
 import AuthContext from "../context/auth/authContext";
-
+import InputForm from "../components/InputForm";
+import EventList from "../components/EventList";
+import TagList from "../components/TagList";
 
 function saveEvent(e){
     e.preventDefault();
@@ -16,7 +18,7 @@ function saveEvent(e){
     event.userId=e.target.userId.value;
     API.createEvent(event)
     .then(res=>{
-      if(res.status==200){
+      if(res.status===200){
         console.log("Successfully saved.");
         API.updateTags(event)
         .then(res=>{
@@ -28,36 +30,31 @@ function saveEvent(e){
       }
     })
 }
-export default function Test(){
+
+function addTag(tagName){
+  let tagInput=document.getElementById("newEvent");
+  tagInput.tags.value+=tagName.trim()+", ";
+}
+export default function Admin(){
     const authContext = useContext(AuthContext);
     const { user } = authContext;
-    let id;
-    console.log(user);
-    if(user)console.log(user._id);
-    if(user) id=user._id;
     let today = new Date().toISOString().substr(0, 10);
     return(
     <>        
-      <NavBar />
-      <form id="newEvent" onSubmit={saveEvent}>
-          <input hidden defaultValue={id} id="userId" />
-        <div><label htmlFor="">Event Name:</label> <input autoComplete="on" autoFocus required type="text" id="title" name="title" /> <label htmlFor="">Private?</label> <input type="checkbox" default="unchecked" id="private"/></div>
-        <div><label htmlFor="">Start Date:</label> <input defaultValue={today} type="date" required id="startDate" /> <label htmlFor="">End Date:</label> <input type="date" id="endDate" /></div>
-        <div><textarea rows="4" cols="60" placeholder="Event description" id="description" /></div>
-        <div><label htmlFor="">Tags:</label> <input type="text" id="tags" required size="55" placeholder="Seperate with commas"/> </div>
-        <div><input type="submit"/> </div>
-      </form>
-      
+    <NavBar />
+    <div className="container-fluid m-3 ">
+      <div className="row">
+        <div className="col-6">
+          <div className="row d-flex align-items-start">
+            <InputForm id={user && user._id} saveEvent={saveEvent} today={today}/>
+          </div>
+          <div className="row">
+            <TagList addTag={addTag} id={user && user._id} />
+          </div>
+        </div>
+        <div className="col-6"><EventList id={user && user._id}/></div>
+      </div>
+    </div>
     </>
     );
 }
-/*----------------------------------------------------------------
-  userId: {type: Number, required:true},
-  startDate:{type: Number, required:true},
-  endDate: Number,
-  desc: String,
-  title: String,
-  tags:[String],
-  private: Boolean
-
-*/

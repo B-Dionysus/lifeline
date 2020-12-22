@@ -71,6 +71,7 @@ const Login = (props) => {
                 onChange={onChange}
                 required
                 placeholder="Password"
+                autoComplete="on" 
               />
             </div>
             <input type="submit" value="Login" className="btn" />
