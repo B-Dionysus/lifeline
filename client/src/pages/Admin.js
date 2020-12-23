@@ -5,7 +5,7 @@ import AuthContext from "../context/auth/authContext";
 import InputForm from "../components/InputForm";
 import EventList from "../components/EventList";
 import TagList from "../components/TagList";
-
+import './admin.css';
 function saveEvent(e){
     e.preventDefault();
     let event={};
@@ -42,17 +42,18 @@ export default function Admin(){
     return(
     <>        
     <NavBar />
-    <div className="container-fluid m-3 ">
+    <div className="container m-3 ">
       <div className="row">
-        <div className="col-6">
-          <div className="row d-flex align-items-start">
+        <div className="col-7">
+          <div className="row d-flex align-items-start input-form">
             <InputForm id={user && user._id} saveEvent={saveEvent} today={today}/>
           </div>
-          <div className="row">
+          <div className="row tag-box">
             <TagList addTag={addTag} id={user && user._id} />
           </div>
         </div>
-        <div className="col-6"><EventList id={user && user._id}/></div>
+        <div className="col-1"></div>
+        <div className="col-4 event-list"><EventList id={user && user._id}/></div>
       </div>
     </div>
     </>

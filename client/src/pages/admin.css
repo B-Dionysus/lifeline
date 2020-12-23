@@ -1,0 +1,31 @@
+.tag-header{
+    position:relative;
+}
+
+.tag{
+    position:relative;
+    padding:.25em;
+    border:1px dotted lightgray;
+}
+.input-form{    
+    border-left:1px solid black;
+    border-top:1px solid black;
+    border-right: 1px solid black;
+    /* border-bottom:1px solid black; */
+    background:white;
+    position:relative;
+    padding:1em;
+}
+.tag-box{
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    border-right: 1px solid black; 
+    background:white;
+    padding:1em; 
+}
+.event-list{
+    border-top:1px solid black;
+    border-right:1px solid black;
+    border:1px solid black;
+    background:white;
+}
