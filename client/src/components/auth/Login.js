@@ -60,6 +60,7 @@ const Login = (props) => {
                 onChange={onChange}
                 required
                 placeholder="Email"
+                autoFocus
               />
             </div>
             <div className="form-group">

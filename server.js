@@ -15,6 +15,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(express.static("client/src/img"));
 app.use(routes);
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
