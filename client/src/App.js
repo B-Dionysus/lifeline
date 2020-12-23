@@ -8,6 +8,8 @@ import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/routing/PrivateRoute";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 // // auth components
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -25,23 +27,24 @@ if (localStorage.token) {
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header main">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
         <AuthState>
           <AlertState>
               <Router>
               <Alert />
+                <NavBar />
                   <Route exact path="/" component={Landing} />   
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />            
                   <PrivateRoute exact path="/test" component={Test} />    
-                  <PrivateRoute exact path="/admin" component={Admin} />        
+                  <PrivateRoute exact path="/admin" component={Admin} />   
               </Router>
           </AlertState>
         </AuthState>
-        <div>We are set like Fett!</div>
-      </header>
+      </header>  
+      <Footer />   
     </div>
   );
 }

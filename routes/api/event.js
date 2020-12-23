@@ -5,17 +5,16 @@ const tagController = require("../../controllers/tagController");
 router.route("/")
   .get(eventController.findAll)
   .post(eventController.findAll);
+  router.route("/:id")
+  .get(eventController.findOne)
 
-  router.route("/create")
-    .post(eventController.create);
-//  .post(booksController.create);
-  router.route("/updateTags")
+  router.route("/delete")
+  .post(eventController.delete);
+
+router.route("/create")
+  .post(eventController.create);
+
+router.route("/updateTags")
     .post(tagController.updateTags);
-// Matches with "/api/books/:id"
-// router
-//   .route("/:id")
-//   .get(booksController.findById)
-//   .put(booksController.update)
-//   .delete(booksController.remove);
 
 module.exports = router;

@@ -26,7 +26,7 @@ function updateATag(tagArray, userId, index){
         db.updateOne(tagObj, tagObj, {upsert:true}, (err, data)=>{
             if(err) {console.error(`Error saving tags: ${err}`);}
             else{ console.log("Added!");}
-            if(index===tagArray.length-1) return true;
+            if(index===tagArray.length-1) return {"success":true};
             else updateATag(tagArray,userId, index+1);
         });
     }

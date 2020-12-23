@@ -8,7 +8,8 @@ const eventSchema = new Schema({
   desc: String,
   title:{type: String, required:true},
   tags:[String],
-  private: Boolean
+  archived:{type:Boolean, default:false},
+  private: Boolean,
 });
 
 const Event = mongoose.model("Event", eventSchema);

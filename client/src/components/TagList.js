@@ -17,7 +17,7 @@ export default function EventList(props){
         .catch(err => console.log(err));
     };
 return(
-    <div className="col-12 tag-list">
+    <div className="col-12 tag-list" id="tag-list">
     <h5 className="tag-header">Tags:</h5>
     {
         tags.map(tag=>(

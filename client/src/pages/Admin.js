@@ -1,11 +1,29 @@
 import React, {useContext} from "react";
 import API from "../utils/API";
-import NavBar from "../components/NavBar";
 import AuthContext from "../context/auth/authContext";
 import InputForm from "../components/InputForm";
 import EventList from "../components/EventList";
 import TagList from "../components/TagList";
 import './admin.css';
+
+function editEvent(e){  
+  let id=e.target.dataset.id;
+  API.loadEvent(id)
+  .then((res)=>{
+    let form=document.getElementById("newEvent");    
+    form.private.value=res.data.private;
+    form.title.value=res.data.title;
+    form.startDate.value=res.data.startDate.substring(0,10);
+    if(res.data.endDate) 
+      form.endDate.value=res.data.endDate.substring(0,10);
+    form.description.value=res.data.desc;
+    form.tags.value=res.data.tags;
+    form.userId.value=res.data.userId;
+    form.eventId.value=res.data._id;
+    console.log(`Set eventId to : ${form.eventId.value}`);
+    
+  })
+}
 function saveEvent(e){
     e.preventDefault();
     let event={};
@@ -16,6 +34,7 @@ function saveEvent(e){
     event.desc=e.target.description.value;
     event.tags=e.target.tags.value.split(",");
     event.userId=e.target.userId.value;
+    event.eventId=e.target.eventId.value;
     API.createEvent(event)
     .then(res=>{
       if(res.status===200){
@@ -24,6 +43,9 @@ function saveEvent(e){
         .then(res=>{
           console.log(`Tags: ${res.success}`);
         });
+        // Optimization notes: really, there should be a global context for the Event and Tag states,
+        // Which would be altered here.
+        window.location.reload(false);      
       }
       else{
         console.log(`Error saving event! ${res}`);    
@@ -41,8 +63,7 @@ export default function Admin(){
     let today = new Date().toISOString().substr(0, 10);
     return(
     <>        
-    <NavBar />
-    <div className="container m-3 ">
+    <div className="container mt-3 main">
       <div className="row">
         <div className="col-7">
           <div className="row d-flex align-items-start input-form">
@@ -53,7 +74,7 @@ export default function Admin(){
           </div>
         </div>
         <div className="col-1"></div>
-        <div className="col-4 event-list"><EventList id={user && user._id}/></div>
+        <div className="col-4 event-list"><EventList id={user && user._id} edit={editEvent}/></div>
       </div>
     </div>
     </>
