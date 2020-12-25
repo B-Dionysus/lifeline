@@ -1,7 +1,7 @@
 import axios from "axios";
 export default{
-    getEvents: function(id){
-        return axios.post("/api/events", id);
+    getEvents: function(filter){
+        return axios.post("/api/events", filter);
     },
     loadEvent: function(id){
         return axios.get(`api/events/${id}`);

@@ -14,11 +14,10 @@ import Footer from "./components/Footer";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Alert from "./utils/Alerts";
-
 // Pages
-import Landing from "./pages/Landing";
 import Test from "./pages/Test";
 import Admin from "./pages/Admin";
+import Lifeline from "./pages/Lifeline";
 // Put login token in local storage
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -35,7 +34,7 @@ function App() {
               <Router>
               <Alert />
                 <NavBar />
-                  <Route exact path="/" component={Landing} />   
+                  <Route exact path="/" component={Lifeline} />   
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />            
                   <PrivateRoute exact path="/test" component={Test} />    

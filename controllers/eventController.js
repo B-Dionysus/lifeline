@@ -1,8 +1,12 @@
 const db = require('../models/Event');
+const mongoose = require('mongoose');
 module.exports = {    
     findAll: function(req, res){ 
+        console.log(req.body);
+        
         // Load every event from the provided user id, except for ones where "archived" is set top true (we've deleted those)
-        db.find({userId:req.body.userId, archived:{$ne:true}}, null,{sort:{startDate:1}}, (err, data)=>{
+        req.body.archived={$ne:true};
+        db.find(req.body, null,{sort:{startDate:1}}, (err, data)=>{
            if(err) 
                 res.status(500).json({ msg: err });             
             else res.json(data)
@@ -18,10 +22,22 @@ module.exports = {
         })
     },
     create: function(req, res){
-        db.updateOne({"_id":req.body.eventId}, req.body, {upsert:true}, (err, data)=>{
-            console.error(err);            
-            if(err) 
-                res.status(500).json({ msg: err });             
+        let filter={};
+        filter._id=new mongoose.mongo.ObjectId();
+        if(req.body.eventId) filter={"_id":req.body.eventId};
+        else delete req.body.eventId;
+        if(req.body.endDate){
+            let end=new Date(req.body.endDate);
+            let start=new Date(req.body.startDate);
+            let diffDate=(end-start)/1000/60/60/24;
+            req.body.length=diffDate;
+        }
+        else req.body.length=0;
+        db.findOneAndUpdate(filter, req.body, {upsert:true, new:true}, (err, data)=>{
+            if(err){
+                console.log(err);
+                res.status(500).json({ msg: err });           
+            }  
             else res.json(data);
         })
     },

@@ -5,10 +5,11 @@ const tagController = require("../../controllers/tagController");
 router.route("/")
   .get(eventController.findAll)
   .post(eventController.findAll);
-  router.route("/:id")
+
+router.route("/:id")
   .get(eventController.findOne)
 
-  router.route("/delete")
+router.route("/delete")
   .post(eventController.delete);
 
 router.route("/create")

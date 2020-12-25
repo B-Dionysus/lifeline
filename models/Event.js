@@ -9,6 +9,7 @@ const eventSchema = new Schema({
   title:{type: String, required:true},
   tags:[String],
   archived:{type:Boolean, default:false},
+  length:Number,
   private: Boolean,
 });
 
