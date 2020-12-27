@@ -30,9 +30,9 @@ module.exports = {
             let end=new Date(req.body.endDate);
             let start=new Date(req.body.startDate);
             let diffDate=(end-start)/1000/60/60/24;
-            req.body.length=diffDate;
+            req.body.howManyDays=diffDate;
         }
-        else req.body.length=0;
+        else req.body.howManyDays=0;
         db.findOneAndUpdate(filter, req.body, {upsert:true, new:true}, (err, data)=>{
             if(err){
                 console.log(err);

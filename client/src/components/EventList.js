@@ -12,7 +12,6 @@ export default function EventList(props){
         API.getEvents({userId:id})
         .then(res => {
             setEvents(res.data);
-            
         })
         .catch(err => console.log(err));
     };
