@@ -1,0 +1,33 @@
+.tag-timeline{    
+    position:relative;
+    display:block;
+    width:max-content;
+    background-color: rgba(255, 255, 255, 1);
+    border-top:1px solid black;
+    border-left:1px solid black;
+    border-right:1px solid grey;
+    border-bottom:1px solid grey;
+    padding:0;
+    margin: -5px;
+    margin-bottom:10px;
+    cursor:pointer;
+}
+.tag-box{
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    border-right: 1px solid black; 
+    background-color: rgba(255, 255, 255, 0.90);
+    padding:1em; 
+    
+}
+.tag-header{
+    position:relative;
+}
+
+.tag-admin{
+    position:relative;
+    padding:.25em;
+    border:1px dotted lightgray;
+    display:inline;
+    cursor:pointer;
+}

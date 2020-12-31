@@ -8,6 +8,9 @@ router.route("/")
 
 router.route("/:id")
   .get(eventController.findOne)
+  
+router.route("/tag")
+  .post(eventController.findByTag)
 
 router.route("/delete")
   .post(eventController.delete);

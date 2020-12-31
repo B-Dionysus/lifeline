@@ -21,7 +21,7 @@ return(
     <h5 className="tag-header">Tags:</h5>
     {
         tags.map(tag=>(
-            <span key={tag.tag} className="tag" onClick={()=>props.addTag(tag.tag)}>{tag.tag} </span>
+            <span key={tag.tag} className={"tag-"+props.page} onClick={()=>props.tagClick(tag.tag)}>{tag.tag} </span>
         ))}
     </div>
     )

@@ -35,8 +35,8 @@ function App() {
               <Alert />
                 <NavBar />
                   <Route exact path="/" component={Lifeline} />   
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />            
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />            
                   <PrivateRoute exact path="/test" component={Test} />    
                   <PrivateRoute exact path="/admin" component={Admin} />   
               </Router>

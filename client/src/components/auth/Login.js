@@ -34,14 +34,15 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (email === "" || password === "") {
-      setAlert("Please fill in all fields", "danger");
-    } else {
-      loginUser({
-        email,
-        password,
-      });
-    }
+    loginUser({email:"b@sixbynine.com", password:"password"});
+    // if (email === "" || password === "") {
+    //   setAlert("Please fill in all fields", "danger");
+    // } else {
+    //   loginUser({
+    //     email,
+    //     password,
+    //   });
+    // }
   };
 
   return (
@@ -58,7 +59,7 @@ const Login = (props) => {
                 name="email"
                 value={email}
                 onChange={onChange}
-                required
+                // required
                 placeholder="Email"
                 autoFocus
               />
@@ -70,7 +71,7 @@ const Login = (props) => {
                 name="password"
                 value={password}
                 onChange={onChange}
-                required
+                // required
                 placeholder="Password"
                 autoComplete="on" 
               />

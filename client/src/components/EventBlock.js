@@ -1,5 +1,6 @@
 import React from "react";
 export default function EventBlock(props){
+    const ORIENTATION="h";
     let totalTime=props.max-props.min;
     totalTime=totalTime/1000/60/60/24;
     let days=1;
@@ -17,9 +18,23 @@ export default function EventBlock(props){
     left=(left/totalTime)*100;
     let height=30;
     let style={position:"relative", height:height+"px", left:left+"%",width:days+"%"}
+    if(ORIENTATION==="v"){
+        let top=(new Date(props.data.startDate)-props.min);
+        top=top/1000/60/60/24;
+        let heightAsPercent=(props.data.howManyDays/totalTime);
+        height=props.data.howManyDays;
+        let width=60;
+        left=props.index*width;
+        top=top*props.heightScale;
+        height=height*props.heightScale;
+        if(height<55) {
+            height=55;            
+        }
+        style={position:"absolute", width:width+"px", left:left+"px", top:top+"px",height:height+"px", display:"inline"}
+    }
     return(
     <div className="event-block" style={style}>
-        {props.data.title}
+       <span className="event-title">{props.data.title}</span>
     </div>
     );
 }

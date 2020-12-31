@@ -1,13 +1,5 @@
 
-.tag-header{
-    position:relative;
-}
 
-.tag{
-    position:relative;
-    padding:.25em;
-    border:1px dotted lightgray;
-}
 .input-form{    
     border-left:1px solid black;
     border-top:1px solid black;
@@ -17,13 +9,7 @@
     position:relative;
     padding:1em;
 }
-.tag-box{
-    border-left:1px solid black;
-    border-bottom:1px solid black;
-    border-right: 1px solid black; 
-    background-color: rgba(255, 255, 255, 0.90);
-    padding:1em; 
-}
+
 .event-list{
     border-top:1px solid black;
     border-right:1px solid black;

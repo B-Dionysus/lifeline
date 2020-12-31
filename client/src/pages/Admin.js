@@ -4,8 +4,8 @@ import AuthContext from "../context/auth/authContext";
 import InputForm from "../components/InputForm";
 import EventList from "../components/EventList";
 import TagList from "../components/TagList";
-import './admin.css';
-
+import '../css/admin.css';
+import "../css/tag.css"
 function editEvent(e){  
   let id=e.target.dataset.id;
   API.loadEvent(id)
@@ -71,7 +71,7 @@ export default function Admin(){
             <InputForm id={user && user._id} saveEvent={saveEvent} today={startDate}/>
           </div>
           <div className="row tag-box">
-            <TagList addTag={addTag} id={user && user._id} />
+            <TagList tagClick={addTag} id={user && user._id} page={"admin"}/>
           </div>
         </div>
         <div className="col-1"></div>
