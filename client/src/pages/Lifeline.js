@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import Timeline from "../components/Timeline";
 import AuthContext from "../context/auth/authContext";
 import TagList from "../components/TagList";
-import "../css/lifeline.css"
+import "../css/events.css"
 import "../css/tag.css"
 export default function Lifeline(){
     
@@ -22,8 +22,7 @@ export default function Lifeline(){
         // But if it is in the state already, remove it
         else temp.splice(i,1);
         // Copy the temp state back into the real state
-        setTagArray(temp);
-        console.log(temp);        
+        setTagArray(temp);    
       }
     return(
         <div className="row">            

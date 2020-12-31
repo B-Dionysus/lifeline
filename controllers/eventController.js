@@ -7,26 +7,21 @@ module.exports = {
         // Load every event from the provided user id, except for ones where "archived" is set top true (we've deleted those)
         req.body.archived={$ne:true};
         db.find(req.body, null,{sort:{startDate:1}}, (err, data)=>{
-            console.log(data);
-
            if(err) 
                 res.status(500).json({ msg: err });             
             else res.json(data)
         })
     },
     findByTag: function(req, res){ 
-         console.log(req.body);
         let searchTags=req.body.tagArray.join("|");
-        // searchTags=`${searchTags}`;
-        console.log(searchTags);
-        // Load every event from the provided user id, except for ones where "archived" is set top true (we've deleted those)
+        // Load every event from the provided user id, except for ones marked "private" and ones where "archived" 
+        // is set to true (we've "deleted" those)
         req.body.archived={$ne:true};
         db.find({userId:req.body.userId, archived:{$ne:true}, private:{$ne:true}, tags:{$regex:searchTags}}, null,{sort:{startDate:1}}, (err, data)=>{
            if(err) 
                 res.status(500).json({ msg: err });  
             else if(data.length===0) res.status(204).json(data);  // Status 204: Request succeeded, but there is no content
             else {
-                // console.log(data);
                 res.json(data)
             }
         })
@@ -34,7 +29,6 @@ module.exports = {
     findOne: function(req, res){
         
         db.findOne({_id:req.params.id}, (err, data)=>{
-            console.log(data);
             if(err) 
               res.status(500).json({ msg: err });             
             else res.json(data)

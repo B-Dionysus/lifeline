@@ -8,7 +8,13 @@ export default function EventBlock(props){
     else{
         days=(props.data.howManyDays/totalTime)*100;
     }
-    if(days<1) days=1;
+    let titleClass="event-title"
+    if(days<=1){
+        // For events that take place in a single instant (like one's birth, say) we just default to calling it 
+        // one day, and then we make sure to move the event title over a little to clean it up
+        days=1;
+        titleClass+=" short"
+    }
     // How far to the right should this go? Well, how many milliseconds in this startdate from the minimum startdate?
     // for this screen?
     let left=(new Date(props.data.startDate)-props.min);
@@ -34,7 +40,7 @@ export default function EventBlock(props){
     }
     return(
     <div className="event-block" style={style}>
-       <span className="event-title">{props.data.title}</span>
+       <span className={titleClass}>{props.data.title}</span>
     </div>
     );
 }

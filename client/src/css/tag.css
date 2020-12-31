@@ -2,7 +2,7 @@
     position:relative;
     display:block;
     width:max-content;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, .5);
     border-top:1px solid black;
     border-left:1px solid black;
     border-right:1px solid grey;
@@ -12,15 +12,16 @@
     margin-bottom:10px;
     cursor:pointer;
 }
-.tag-box{
-    border-left:1px solid black;
-    border-bottom:1px solid black;
-    border-right: 1px solid black; 
-    background-color: rgba(255, 255, 255, 0.90);
-    padding:1em; 
-    
+/* For the main display screen */
+.tag-filter-bar{
+    background:black;
+    padding-top:5%;
 }
-.tag-header{
+.tag-header-timeline{
+    position:relative;
+    color:#e924c8;
+}
+.tag-header-admin{
     position:relative;
 }
 
@@ -30,4 +31,14 @@
     border:1px dotted lightgray;
     display:inline;
     cursor:pointer;
+}
+
+/* For the admin input screen */
+.tag-box{
+    border-left:1px solid black;
+    border-bottom:1px solid black;
+    border-right: 1px solid black; 
+    background-color: rgba(255, 255, 255, 0.90);
+    padding:1em; 
+    
 }

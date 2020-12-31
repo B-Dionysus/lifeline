@@ -18,7 +18,7 @@ export default function EventList(props){
     };
 return(
     <div className="col-12 tag-list" id="tag-list">
-    <h5 className="tag-header">Tags:</h5>
+    <h5 className={"tag-header-"+props.page}>Tags:</h5>
     {
         tags.map(tag=>(
             <span key={tag.tag} className={"tag-"+props.page} onClick={()=>props.tagClick(tag.tag)}>{tag.tag} </span>

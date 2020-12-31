@@ -1,0 +1,23 @@
+.events{
+    padding-top:10px;
+    background:black;
+}
+.event-block{
+    border:1px solid e924c8;
+    background-size: 13%;   
+    background-color: black;    
+    margin-top:10px;
+    border-radius: .35em;
+    box-shadow: 0 0px 15px 5px #e924c8;
+}
+.event-title{        
+    position: absolute;
+    left:45%;
+    margin:auto; 
+    width: max-content;
+    color:white;
+}
+.short{
+    margin-left:10px;
+}
+

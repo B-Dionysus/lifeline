@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import API from "../utils/API";
 import EventBlock from "../components/EventBlock"
-import "../css/timeline.css"
+import "../css/events.css"
 export default function Timeline(props){
     const [min, setMin] = useState();
     const [max, setMax] = useState();

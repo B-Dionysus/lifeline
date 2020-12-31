@@ -3,7 +3,7 @@ div{
     position:relative;
 }
 .main{
-    background-image: url("./img/wallpaper.webp");
+    background-image: url("../img/wallpaper.webp");
     background-size: 25%;
     padding-bottom:1.5em;
 }
