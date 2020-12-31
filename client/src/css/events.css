@@ -1,3 +1,7 @@
+.timeline-container{
+    position:relative;
+    height:100%;
+}
 .events{
     padding-top:10px;
     background:black;
@@ -8,16 +12,43 @@
     background-color: black;    
     margin-top:10px;
     border-radius: .35em;
-    box-shadow: 0 0px 15px 5px #e924c8;
+    box-shadow: 0 0px 10px 4px #e924c8;
 }
 .event-title{        
     position: absolute;
-    left:45%;
+    left:1%;
     margin:auto; 
     width: max-content;
     color:white;
+    font-size:small;
 }
 .short{
     margin-left:10px;
 }
 
+/* Admin */
+
+.event-list{
+    border-top:1px solid black;
+    border-right:1px solid black;
+    border:1px solid black;
+    background-color: rgba(255, 255, 255, 0.90);
+    height: 550px;
+    overflow-y:auto;
+}
+
+.event{
+    margin:1em;
+    border:1px solid black;
+    padding-left:1em;
+    padding-right:1em;
+}
+.event i {
+    cursor:pointer;
+}
+.event-header{
+    background:lightgray;
+}
+.event-desc{
+    padding:.5em;
+}

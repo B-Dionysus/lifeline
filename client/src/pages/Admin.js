@@ -11,7 +11,7 @@ function editEvent(e){
   API.loadEvent(id)
   .then((res)=>{
     let form=document.getElementById("newEvent");    
-    form.private.value=res.data.private;
+    form.private.checked=res.data.private;
     form.title.value=res.data.title;
     form.startDate.value=res.data.startDate.substring(0,10);
     
@@ -64,7 +64,7 @@ export default function Admin(){
     let startDate = new Date().toISOString().substr(0, 10);
     return(
     <>        
-    <div className="container mt-3 main">
+    <div className="container mt-3 main-admin">
       <div className="row">
         <div className="col-7">
           <div className="row d-flex align-items-start input-form">

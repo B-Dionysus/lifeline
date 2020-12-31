@@ -1,2 +1,6 @@
 {
+    "favorites.resources": [
+        "controllers\\eventController.js",
+        "client\\src\\css"
+    ]
 }

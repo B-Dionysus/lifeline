@@ -27,7 +27,7 @@ export default function Lifeline(){
     return(
         <div className="row">            
             <div className="col-2 tag-filter-bar">
-             <TagList tagClick={addTag} id={user && user._id} page={"timeline"}/>
+             <TagList tagClick={addTag} id={user && user._id} tagArray={tagArray} page={"timeline"}/>
             </div>
             <div className="col-10 events">
                 <Timeline id={user && user._id} tagArray={tagArray}/>

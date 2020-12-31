@@ -3,7 +3,18 @@ export default function EventBlock(props){
     const ORIENTATION="h";
     let totalTime=props.max-props.min;
     totalTime=totalTime/1000/60/60/24;
+    if(!props.data.endDate){
+        // If there is no end date, the event is still ongoing
+        // we'll need to calculate the length of the event every time we load it,
+        // based on today's date
+        let end=new Date();
+        let start=new Date(props.data.startDate);
+        let diffDate=(end-start)/1000/60/60/24;
+        props.data.howManyDays=diffDate;
+    }
     let days=1;
+    // Some events have an end date but are still zero days long--if they began and ended on the same day
+    // For those, we will default to 1 day just so we can see them on the screen.
     if(props.data.howManyDays === 0) days=1;
     else{
         days=(props.data.howManyDays/totalTime)*100;

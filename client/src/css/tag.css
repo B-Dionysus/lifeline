@@ -42,3 +42,7 @@
     padding:1em; 
     
 }
+.active-tag{
+    
+    box-shadow: 0 0px 10px 4px #e924c8;
+}

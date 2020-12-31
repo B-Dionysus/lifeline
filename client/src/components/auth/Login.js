@@ -2,8 +2,6 @@ import React, { useState, useContext, useEffect, Fragment } from "react";
 import AuthContext from "../../context/auth/authContext";
 import AlertContext from "../../context/alert/alertContext";
 import { Link } from "react-router-dom";
-// import styled from "styled-components";
-// import Nav from "../layout/Nav";
 
 const Login = (props) => {
   const alertContext = useContext(AlertContext);
@@ -35,6 +33,7 @@ const Login = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     loginUser({email:"b@sixbynine.com", password:"password"});
+    // Don't forget to restore off of this stuff when we go live!!!
     // if (email === "" || password === "") {
     //   setAlert("Please fill in all fields", "danger");
     // } else {
@@ -47,7 +46,7 @@ const Login = (props) => {
 
   return (
     <Fragment>
-        <div className="form-container">
+        <div className="form-container login-form">
           <h1>
             Account <span>Login</span>
           </h1>
@@ -76,7 +75,7 @@ const Login = (props) => {
                 autoComplete="on" 
               />
             </div>
-            <input type="submit" value="Login" className="btn" />
+            <input type="submit" value="Login" className="button" />
           </form>
           
           <Link to="/register">
