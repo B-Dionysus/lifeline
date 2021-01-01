@@ -33,8 +33,17 @@ export default function EventBlock(props){
     left=left/1000/60/60/24;
     // and find the percentage of totalTime
     left=(left/totalTime)*100;
-    let height=30;
+    let height=30;    
+    let fs="small";
     let style={position:"relative", height:height+"px", left:left+"%",width:days+"%"}
+    // Where should the title text go? By default, let's just say it's a bit to the right of the start of the block
+    let titleLeft=2+"%";
+    // But if the block is too small, we should move it to one of the ends
+    // The right end, if the block is on the left-hand side
+    if(days<(props.data.title.length) && (days+left)<75) titleLeft=115+"%";
+    // Or the left end, if it's over to the right
+    else if(days<(props.data.title.length)) titleLeft=(props.data.title.length*-9)+"px";
+    let titleStyle={position:"absolute", left:titleLeft, fontSize:fs}
     if(ORIENTATION==="v"){
         let top=(new Date(props.data.startDate)-props.min);
         top=top/1000/60/60/24;
@@ -51,7 +60,7 @@ export default function EventBlock(props){
     }
     return(
     <div className="event-block" style={style}>
-       <span className={titleClass}>{props.data.title}</span>
+       <span className={titleClass} style={titleStyle}>{props.data.title}</span>
     </div>
     );
 }

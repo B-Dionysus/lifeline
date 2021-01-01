@@ -12,7 +12,7 @@ module.exports = {
            if(err) 
                 res.status(500).json({ msg: err });             
             else res.json(data)
-        })
+        }).sort({tag:1})
     },
 };
 

@@ -6,7 +6,7 @@ import "../css/events.css"
 import "../css/tag.css"
 export default function Lifeline(){
     
-    const [tagArray, setTagArray] = useState(["milestone"]);
+    const [tagArray, setTagArray] = useState([]);
     const authContext = useContext(AuthContext);
     const { user } = authContext;
 

@@ -16,11 +16,10 @@
 }
 .event-title{        
     position: absolute;
-    left:1%;
-    margin:auto; 
+    padding-top:4px;
     width: max-content;
     color:white;
-    font-size:small;
+    font-family: 'Fira Code', monospace;
 }
 .short{
     margin-left:10px;
