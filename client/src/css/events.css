@@ -4,21 +4,17 @@
 }
 .events{
     padding-top:10px;
-    background:black;
 }
 .event-block{
     border:1px solid e924c8;
-    background-size: 13%;   
-    background-color: black;    
+    background-size: 13%;    
     margin-top:10px;
     border-radius: .35em;
-    box-shadow: 0 0px 10px 4px #e924c8;
 }
 .event-title{        
     position: absolute;
     padding-top:4px;
     width: max-content;
-    color:white;
     font-family: 'Fira Code', monospace;
 }
 .short{
@@ -30,7 +26,6 @@
 .event-list{
     border-top:1px solid black;
     border-right:1px solid black;
-    border:1px solid black;
     background-color: rgba(255, 255, 255, 0.90);
     height: 550px;
     overflow-y:auto;
