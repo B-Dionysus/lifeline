@@ -14,7 +14,6 @@
 }
 /* For the main display screen */
 .tag-filter-bar{
-    background:black;
     padding-top:5%;
 }
 .tag-header-timeline{
@@ -38,7 +37,6 @@
     border-left:1px solid black;
     border-bottom:1px solid black;
     border-right: 1px solid black; 
-    background-color: rgba(255, 255, 255, 0.90);
     padding:1em; 
     
 }

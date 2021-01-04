@@ -1,5 +1,5 @@
 import './css/App.css';
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Auth context states
@@ -8,6 +8,10 @@ import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/routing/PrivateRoute";
+
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./components/GlobalStyles";
+import { lightTheme, darkTheme } from "./components/Themes"
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 // // auth components
@@ -23,7 +27,11 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-function App() {
+function App() {  
+  const [theme, setTheme] = useState('light');
+const themeToggler = () => {
+  theme === 'light' ? setTheme('dark') : setTheme('light')
+}
   return (
     <div className="App">
       <header className="App-header main">
@@ -31,15 +39,19 @@ function App() {
 
         <AuthState>
           <AlertState>
+          <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyles/>
               <Router>
               <Alert />
                 <NavBar />
+          <button onClick={themeToggler}>Switch Theme</button>
                   <Route exact path="/" component={Lifeline} />   
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />            
                   <PrivateRoute exact path="/test" component={Test} />    
                   <PrivateRoute exact path="/admin" component={Admin} />   
               </Router>
+              </ThemeProvider>
           </AlertState>
         </AuthState>
       </header>  

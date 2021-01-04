@@ -3,7 +3,6 @@ div{
     position:relative;
 }
 .main{
-    background:black;
     min-height:90vh;
 }
 .footer{
@@ -17,10 +16,10 @@ div{
     /* background-image: url("../img/wallpaper.webp");
     background-size: 25%; */
 }
-.navbar{
+/* .navbar{
     background: rgb(0,0,0);
 background: linear-gradient(0deg, rgba(0,0,0,1) 18%, rgba(241,0,209,1) 20%, rgba(255,255,255,1) 38%);
-}
+} */
 
 .login-form h1{
     color:#e924c8;
