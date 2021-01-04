@@ -28,9 +28,19 @@ if (localStorage.token) {
 }
 
 function App() {  
-  const [theme, setTheme] = useState('light');
-const themeToggler = () => {
-  theme === 'light' ? setTheme('dark') : setTheme('light')
+  let defaultTheme="light";
+  defaultTheme=localStorage.getItem("theme");
+  const [theme, setTheme] = useState(defaultTheme);
+  const themeToggler = () => {
+  if(theme==="light"){
+    setTheme("dark");
+    localStorage.setItem("theme", "dark");
+  }
+  else {
+    setTheme("light");
+    localStorage.setItem("theme", "light");
+  }
+  // theme === 'light' ? setTheme('dark') : setTheme('light')
 }
   return (
     <div className="App">

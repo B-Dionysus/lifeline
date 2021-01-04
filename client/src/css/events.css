@@ -10,6 +10,7 @@
     background-size: 13%;    
     margin-top:10px;
     border-radius: .35em;
+    cursor:pointer;
 }
 .event-title{        
     position: absolute;
@@ -45,4 +46,44 @@
 }
 .event-desc{
     padding:.5em;
+}
+.dates{
+    height:20px;
+}
+.date-title{
+    position:absolute;
+    font-size:small;    
+    width:max-content;
+    transform:rotate(90deg);    
+}
+.date-block{
+    position:absolute;
+    display:inline;
+    height:50px;
+    width:max-content;
+    top:-16px;
+}
+.description{
+    position: absolute;
+    width: 29vw;
+    top: 6vh;
+    left: 50vw;
+    height: 27vh;
+    overflow-y:auto; 
+}
+.desc-box-header{
+    text-align:right;
+}
+.fas{
+    margin-right:.5em;
+}
+#desc-title{
+    margin-right: 2em;
+}
+#desc-box-body{    
+    padding:.1em;   
+    position: absolute;
+    height: 100%;
+    overflow-y:auto; 
+    
 }

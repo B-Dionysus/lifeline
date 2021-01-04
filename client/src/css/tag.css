@@ -18,7 +18,6 @@
 }
 .tag-header-timeline{
     position:relative;
-    color:#e924c8;
 }
 .tag-header-admin{
     position:relative;
@@ -42,5 +41,5 @@
 }
 .active-tag{
     
-    box-shadow: 0 0px 10px 4px #e924c8;
+    
 }

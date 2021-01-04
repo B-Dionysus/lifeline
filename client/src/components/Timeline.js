@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import API from "../utils/API";
 import EventBlock from "../components/EventBlock"
+import DateBlock from "../components/DateBlock"
 import "../css/events.css"
 export default function Timeline(props){
     const [min, setMin] = useState();
@@ -16,7 +17,9 @@ export default function Timeline(props){
             loadEvents(id);
         }
     },[props]);
-
+    function closeDesc(){
+        document.getElementById("description-box").style.display="none";
+    }
     function loadEvents(id){
         
         if(props.tagArray){
@@ -32,7 +35,6 @@ export default function Timeline(props){
                     let thereIsAtLeastOneOngoingDate=false;
                     for(const elem of res.data){
                         if(!elem.endDate) {
-                            console.log("ongoin'");
                             maxD=new Date();
                             thereIsAtLeastOneOngoingDate=true;
                         }
@@ -50,16 +52,30 @@ export default function Timeline(props){
         }
     }
     
-    let heightScale=.25;
-    let totalHeight;
-    if(max>0)totalHeight=((max-min)/1000/60/60/24);    
-    let style={height:totalHeight+"px"}
-    // if(ORIENTATION==="h") style="";
+    let heightScale=.25;  
     return(
         <div className="container-fluid timeline-container">
-            {events.map((elem, index)=>(
-                <EventBlock key={elem._id} data={elem} min={min} max={max} heightScale={heightScale} index={index}/>
-            ))}
+            <div className="row">
+                <div className="col-12 dates">
+                {events.map((elem, index)=>(
+                    <DateBlock key={elem._id} data={elem} min={min} max={max} prev={index>0 && events[index-1].startDate}/>
+                ))}
+                </div>
+            </div>
+            <div className="row">   
+                <div className="col-12">
+                {events.map((elem, index)=>(
+                    <EventBlock key={elem._id} data={elem} min={min} max={max} heightScale={heightScale} index={index}/>
+                ))}
+                </div>
+            </div>            
+            <div className="description" id="description-box">
+                <div className="desc-box-header">
+                    <span id="desc-title"></span>
+                <i onClick={closeDesc} className="fas fa-window-close"></i>
+                </div>
+                <div id="desc-box-body"></div>
+            </div>
         </div>
     )
 }

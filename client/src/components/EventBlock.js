@@ -1,6 +1,25 @@
 import React from "react";
 export default function EventBlock(props){
-    const ORIENTATION="h";
+
+    function showDesc(data){
+        let descBox=document.getElementById("description-box");
+        let descText=document.getElementById("desc-box-body");
+        document.getElementById("desc-title").innerHTML=data.title;
+        // Parse the date string to make it easier to read
+        let start=data.startDate.substring(5,7)+"/"+data.startDate.substring(8,10)+"/"+data.startDate.substring(0,4);
+        let end="Ongoing"
+        if(data.endDate)
+            end=data.endDate.substring(5,7)+"/"+data.endDate.substring(8,10)+"/"+data.endDate.substring(0,4);
+
+        descBox.style.top=window.event.pageY-200+"px";
+        if(window.event.pageX/(window.innerWidth)>.5) descBox.style.left="5%";
+        else descBox.style.left="50%";
+        descText.innerHTML=`${start} — ${end}`;
+        descText.innerHTML+="<hr />"+data.desc;
+        descBox.style.display="block";
+        
+    }
+
     let totalTime=props.max-props.min;
     totalTime=totalTime/1000/60/60/24;
     if(!props.data.endDate){
@@ -44,22 +63,8 @@ export default function EventBlock(props){
     // Or the left end, if it's over to the right
     else if(days<(props.data.title.length)) titleLeft=(props.data.title.length*-9)+"px";
     let titleStyle={position:"absolute", left:titleLeft, fontSize:fs}
-    if(ORIENTATION==="v"){
-        let top=(new Date(props.data.startDate)-props.min);
-        top=top/1000/60/60/24;
-        let heightAsPercent=(props.data.howManyDays/totalTime);
-        height=props.data.howManyDays;
-        let width=60;
-        left=props.index*width;
-        top=top*props.heightScale;
-        height=height*props.heightScale;
-        if(height<55) {
-            height=55;            
-        }
-        style={position:"absolute", width:width+"px", left:left+"px", top:top+"px",height:height+"px", display:"inline"}
-    }
     return(
-    <div className="event-block" style={style}>
+    <div className="event-block" onClick={(e)=>(showDesc((props.data), e))} style={style}>
        <span className={titleClass} style={titleStyle}>{props.data.title}</span>
     </div>
     );
