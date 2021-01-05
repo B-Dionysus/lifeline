@@ -2,22 +2,22 @@ const db = require('../models/Event');
 const mongoose = require('mongoose');
 module.exports = {    
     findAll: function(req, res){ 
-        console.log(req.body);
-        
         // Load every event from the provided user id, except for ones where "archived" is set top true (we've deleted those)
         req.body.archived={$ne:true};
         db.find(req.body, null,{sort:{startDate:1}}, (err, data)=>{
            if(err) 
                 res.status(500).json({ msg: err });             
             else res.json(data)
-        })
+        }).sort("startDate")
     },
     findByTag: function(req, res){ 
         let searchTags=req.body.tagArray.join("|");
         // Load every event from the provided user id, except for ones marked "private" and ones where "archived" 
         // is set to true (we've "deleted" those)
         req.body.archived={$ne:true};
-        db.find({userId:req.body.userId, archived:{$ne:true}, private:{$ne:true}, tags:{$regex:searchTags}}, null,{sort:{startDate:1}}, (err, data)=>{
+        db.find({userId:req.body.userId, archived:{$ne:true}, private:{$ne:true}, tags:{$regex:searchTags}})
+        .sort([["startDate",1]])
+        .exec((err, data)=>{
            if(err) 
                 res.status(500).json({ msg: err });  
             else if(data.length===0) res.status(204).json(data);  // Status 204: Request succeeded, but there is no content

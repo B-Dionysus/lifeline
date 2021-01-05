@@ -31,6 +31,7 @@ import {
       case LOGIN_FAIL:
       case LOGOUT:
       case AUTH_ERROR:
+        console.log("Logout")
         localStorage.removeItem("token");
         return {
           ...state,

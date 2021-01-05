@@ -35,5 +35,29 @@ export const GlobalStyles = createGlobalStyle`
   .date-title{
     border-bottom:${({theme})=>theme.date_border};
   }
-
+  .input-form{
+    border:${({theme})=>theme.input_border};
+  }  
+  #newEvent input{
+    background:${({theme})=>theme.input_formField};
+    color:${({theme})=>theme.text};
+  }
+  #newEvent textarea{
+    background:${({theme})=>theme.input_formField};    
+    color:${({theme})=>theme.text};
+  }
+  .event-list{    
+    background-color:${({theme})=>theme.event_listBack};
+    border-top:${({theme})=>theme.event_listBorder};
+    border-right:${({theme})=>theme.event_listBorder};
+  }
+  .event-block{
+      border:${({theme})=>theme.event_blockBorder};
+  }
+  .event-header{
+    background:${({theme})=>theme.eventHeader_back};
+  }
+  .event{
+    border:${({theme})=>theme.event_blockBorder}
+  }
   `

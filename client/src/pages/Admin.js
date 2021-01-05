@@ -27,7 +27,7 @@ function editEvent(e){
 function saveEvent(e){  
     e.preventDefault();
     let event={};
-    event.private=e.target.private.checked;
+    // event.private=e.target.private.checked;
     event.title=e.target.title.value;
     event.startDate=e.target.startDate.value;
     event.endDate=e.target.endDate.value;

@@ -12,12 +12,17 @@ export const lightTheme = {
     desc_border:"1px solid black",
     desc_header:"gray",
     desc_back:"#FFF",
+    input_border:"1px solid black;",
+    event_listBack:"rgba(255, 255, 255, 0.90);",
+    event_listBorder:"1px solid black",
+    event_blockBorder:"1px solid black;",    
+    eventHeader_back:"#999",    
+    input_formField:"#FFF",
 } 
 export const darkTheme = {
     body: '#000',
     text: '#FFF',
     nav_back:"linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(241,0,209,.6) 25%, rgba(241,0,209,.15) 70%);",
-    // tagText:"rgba(241,0,209,1)"
     event_shadow:"0 0px 10px 4px #e924c8;",
     event_border:"0px solid black;",
     tag_header:"#e924c8;",
@@ -28,4 +33,10 @@ export const darkTheme = {
     desc_border:"1px solid #660759",
     desc_header:"linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(241,0,209,.6) 25%, rgba(241,0,209,.15) 70%);",
     desc_back:"#000",
+    input_border:"1px solid #660759",
+    event_listBack:"#000",
+    event_listBorder:"1px solid #660759",
+    event_blockBorder:"1px solid #660759",
+    eventHeader_back:"#555",
+    input_formField:"#222",
 }

@@ -32,16 +32,16 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    loginUser({email:"b@sixbynine.com", password:"password"});
+    // loginUser({email:"b@sixbynine.com", password:"password"});
     // Don't forget to restore off of this stuff when we go live!!!
-    // if (email === "" || password === "") {
-    //   setAlert("Please fill in all fields", "danger");
-    // } else {
-    //   loginUser({
-    //     email,
-    //     password,
-    //   });
-    // }
+    if (email === "" || password === "") {
+      setAlert("Please fill in all fields", "danger");
+    } else {
+      loginUser({
+        email,
+        password,
+      });
+    }
   };
 
   return (

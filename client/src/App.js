@@ -17,6 +17,8 @@ import Footer from "./components/Footer";
 // // auth components
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import Logout from "./components/auth/Logout";
+
 import Alert from "./utils/Alerts";
 // Pages
 import Test from "./pages/Test";
@@ -40,13 +42,10 @@ function App() {
     setTheme("light");
     localStorage.setItem("theme", "light");
   }
-  // theme === 'light' ? setTheme('dark') : setTheme('light')
 }
   return (
     <div className="App">
       <header className="App-header main">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-
         <AuthState>
           <AlertState>
           <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -57,7 +56,8 @@ function App() {
           <button onClick={themeToggler}>Switch Theme</button>
                   <Route exact path="/" component={Lifeline} />   
                   <Route exact path="/register" component={Register} />
-                  <Route exact path="/login" component={Login} />            
+                  <Route exact path="/login" component={Login} />        
+                  <Route exact path="/logout" component={Logout} />            
                   <PrivateRoute exact path="/test" component={Test} />    
                   <PrivateRoute exact path="/admin" component={Admin} />   
               </Router>

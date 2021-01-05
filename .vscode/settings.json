@@ -3,6 +3,7 @@
         "controllers\\eventController.js",
         "client\\src\\css",
         "client\\src\\components\\EventBlock.js",
-        "client\\src\\pages\\Lifeline.js"
+        "client\\src\\pages\\Lifeline.js",
+        "client\\src\\components\\auth\\lifeOfLincoln.txt"
     ]
 }
