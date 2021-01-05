@@ -6,6 +6,14 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     transition: all 0.50s linear;
   }
+  a{
+    color:${({theme})=>theme.text}
+  }
+  a:hover{
+    // color:${({theme})=>theme.body}
+    text-decoration:none;
+    color:${({theme})=>theme.accent};
+  }
   .navbar{
     background: rgb(0,0,0);
     background: ${({theme})=>theme.nav_back}
@@ -59,5 +67,20 @@ export const GlobalStyles = createGlobalStyle`
   }
   .event{
     border:${({theme})=>theme.event_blockBorder}
+  }
+  .fa-toggle-on{
+    position: relative;
+    top: 3px;
+    cursor:pointer;
+    font-size:large;
+    display:${({theme})=>theme.themeOn_display}
+  }
+  .fa-toggle-off{
+    position: relative;
+    top: 3px;
+    margin-top:1vh;
+    cursor:pointer;
+    font-size:large;
+    display:${({theme})=>theme.themeOff_display}
   }
   `

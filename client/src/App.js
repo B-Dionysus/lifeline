@@ -52,8 +52,7 @@ function App() {
       <GlobalStyles/>
               <Router>
               <Alert />
-                <NavBar />
-          <button onClick={themeToggler}>Switch Theme</button>
+                <NavBar switchTheme={themeToggler} theme={theme}/>
                   <Route exact path="/" component={Lifeline} />   
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />        

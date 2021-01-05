@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../context/auth/authContext";
 import { Link } from "react-router-dom"; 
-export default function NavBar(){
+export default function NavBar(props){
     const authContext = useContext(AuthContext);
 
     const { user } = authContext;
@@ -12,13 +12,16 @@ export default function NavBar(){
 
     
     return(
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg justify-content-between">
     <Link to="/"><span className="navbar-brand"><i className="fas fa-birthday-cake"> Lifeline</i></span></Link>
     <div className="navbar-nav">
        <span className="nav-item nav-link">{!user ? "" : user.name} </span>
     </div>
     <div className="navbar-nav">
         {user && (<span className="nav-item nav-link"><Link to="admin">Edit Events</Link></span>)}
+    </div>
+    <div className="navbar-nav">
+        <span className="theme-toggle" onClick={props.switchTheme}>{props.theme==="light" ? "Light Mode" : "Dark Mode"} <i className="fas fa-toggle-off"/><i className="fas fa-toggle-on"/></span>
     </div>
     <div className="navbar-nav">
         {!user ?
