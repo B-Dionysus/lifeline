@@ -12,9 +12,8 @@
     margin-bottom:10px;
     cursor:pointer;
 }
-/* For the main display screen */
-.tag-filter-bar{
-    padding-top:5%;
+.user-name{
+    padding-bottom:2em;
 }
 .tag-header-timeline{
     position:relative;

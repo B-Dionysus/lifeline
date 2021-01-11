@@ -30,11 +30,13 @@ export default function Lifeline(){
       }
       // If no user is logged in, by deault load the following (currently set to Abraham Lincoln)
       let userId;
-      if(!user) userId ="5ff3b31590c73f4b98009673";
+      let tempName="Abraham Lincoln"
+      if(!user) {userId ="5ff3b31590c73f4b98009673"; }
       else userId=user._id;
     return(
         <div className="row">            
             <div className="col-2 tag-filter-bar">
+             <h3 className="user-name">{user ? user.name : tempName}</h3>
              <TagList tagClick={addTag} id={userId} tagArray={tagArray} page={"timeline"}/>
             </div>
             <div className="col-10 events">
