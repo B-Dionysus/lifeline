@@ -3,6 +3,10 @@ export default{
     getEvents: function(filter){
         return axios.post("/api/events", filter);
     },
+    getName: function(id){
+        console.log(id);        
+        return axios.post(`/api/user/`, id)
+    },
     getEventsByTag: function(filter){
         return axios.post("/api/events/tag", filter);
     },

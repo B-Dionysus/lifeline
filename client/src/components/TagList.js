@@ -9,7 +9,7 @@ export default function EventList(props){
     }, [id]);
  
     function loadTags(id) {
-        API.getTags({userId:id})
+        API.getTags({userId:props.id})
         .then(res => {
             setTags(res.data);
             

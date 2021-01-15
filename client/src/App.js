@@ -54,6 +54,7 @@ function App() {
               <Alert />
                 <NavBar switchTheme={themeToggler} theme={theme}/>
                   <Route exact path="/" component={Lifeline} />   
+                  <Route exact path="/user" component={Lifeline} />   
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />        
                   <Route exact path="/logout" component={Logout} />            
