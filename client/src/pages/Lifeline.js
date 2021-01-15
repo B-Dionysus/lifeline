@@ -25,7 +25,7 @@ export default function Lifeline(){
         else temp="5ff3b31590c73f4b98009673";
         setDisplayId(temp);
         getUserName(temp);
-    },[document.location.search]);
+    },[document.location.search, user]);
 
     function getUserName(userId){  
         API.getName({"_id":userId})
