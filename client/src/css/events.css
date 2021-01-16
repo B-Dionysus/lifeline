@@ -40,18 +40,22 @@
     padding:.5em;
 }
 .dates{
-    height:20px;
+    height:0px;
 }
 .date-title{
     position:absolute;
+    top:-15px;
+    left:-9px;
     font-size:small;    
     width:max-content;
     transform:rotate(90deg);    
 }
 .date-block{
     position:absolute;
-    width:max-content;
+    width:30px;
+    height:25px;
     top:23px;
+    border-left:1px solid black;
 }
 .description{
     position: absolute;

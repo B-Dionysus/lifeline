@@ -2,10 +2,11 @@ import React, {useState, useEffect} from "react";
 import API from "../utils/API";
 import EventBlock from "../components/EventBlock"
 import DateBlock from "../components/DateBlock"
+import YearBlock from "../components/YearBlock"
 import "../css/events.css"
 export default function Timeline(props){
-    const [min, setMin] = useState();
-    const [max, setMax] = useState();
+    const [min, setMin] = useState(new Date());
+    const [max, setMax] = useState(new Date());
     const [events, setEvents] = useState([]);
     let id=props.id;
     let tagArray=props.tagArray;
@@ -52,24 +53,29 @@ export default function Timeline(props){
             })
         }
     }
-    
-    for(let elem of events){
-        // console.log(elem.title);
-        // console.log(elem.howManyDays);
-        // console.log("====");
+    let yearArray=[];    
+    let yearHeight=25;
+    let dateDensity=(window.innerWidth/(max.getFullYear()-min.getFullYear()));
+    let yearSkip=1;
+    if(dateDensity<yearHeight/4) yearSkip=4;
+    else if(dateDensity<yearHeight/3) yearSkip=3;
+    else if(dateDensity<yearHeight/2) yearSkip=2;
+    for(let i=min.getFullYear(); i<max.getFullYear();i+=yearSkip){
+        yearArray.push(i);
     }
     let heightScale=.25;  
     return(
         <div className="container-fluid timeline-container">
             <div className="row">
                 <div className="col-12 dates">
-                {events.map((elem, index)=>(
-                    <DateBlock key={elem._id} data={elem} min={min} max={max} prev={index>0 && events[index-1].startDate}/>
+                {yearArray.map((elem, index)=>(
+                    <YearBlock key={elem} total={((yearArray.length))} year={elem} index={index} start={min.getFullYear()}/>
+                    // <DateBlock key={elem._id} data={elem} min={min} max={max} prev={index>0 && events[index-1].startDate}/>
                 ))}
                 </div>
             </div>
             <div className="row">   
-                <div className="col-12">
+                <div className="col-12 p-0">
                 {events.map((elem, index)=>(
                     <EventBlock key={elem._id} data={elem} min={min} max={max} heightScale={heightScale} index={index}/>
                 ))}

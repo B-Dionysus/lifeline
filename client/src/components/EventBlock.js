@@ -1,7 +1,8 @@
 import React from "react";
 export default function EventBlock(props){
-
+    let startingYear=new Date("01-01-"+props.min.getFullYear());
     function showDesc(data){
+        // The description box that pops up when you click on the event block
         let descBox=document.getElementById("description-box");
         let descText=document.getElementById("desc-box-body");
         document.getElementById("desc-title").innerHTML=data.title;
@@ -21,7 +22,7 @@ export default function EventBlock(props){
     }
 
     let totalTime=props.max-props.min;
-    totalTime=totalTime/1000/60/60/24;
+    totalTime=(totalTime/1000/60/60/24)+365;
     if(!props.data.endDate){
         // If there is no end date, the event is still ongoing
         // we'll need to calculate the length of the event every time we load it,
@@ -47,7 +48,8 @@ export default function EventBlock(props){
     }
     // How far to the right should this go? Well, how many milliseconds in this startdate from the minimum startdate?
     // for this screen?
-    let left=(new Date(props.data.startDate)-props.min);
+    // let left=(new Date(props.data.startDate)-props.min);
+    let left=(new Date(props.data.startDate)-startingYear);
     // Now convert it to days
     left=left/1000/60/60/24;
     // and find the percentage of totalTime

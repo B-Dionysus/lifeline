@@ -40,8 +40,8 @@ export const GlobalStyles = createGlobalStyle`
   .desc-box-header{
     background:${({theme})=>theme.desc_header};
 }
-  .date-title{
-    border-bottom:${({theme})=>theme.date_border};
+  .date-block{
+    border-left:${({theme})=>theme.date_border};
   }
   .input-form{
     border:${({theme})=>theme.input_border};
