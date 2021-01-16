@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import API from "../utils/API";
 import EventBlock from "../components/EventBlock"
-import DateBlock from "../components/DateBlock"
 import YearBlock from "../components/YearBlock"
 import "../css/events.css"
 export default function Timeline(props){
@@ -70,7 +69,6 @@ export default function Timeline(props){
                 <div className="col-12 dates">
                 {yearArray.map((elem, index)=>(
                     <YearBlock key={elem} total={((yearArray.length))} year={elem} index={index} start={min.getFullYear()}/>
-                    // <DateBlock key={elem._id} data={elem} min={min} max={max} prev={index>0 && events[index-1].startDate}/>
                 ))}
                 </div>
             </div>

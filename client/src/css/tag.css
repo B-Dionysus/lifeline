@@ -7,12 +7,15 @@
     border-left:1px solid black;
     border-right:1px solid grey;
     border-bottom:1px solid grey;
-    padding:0;
+    padding:.5vw;
     margin: -5px;
     margin-bottom:10px;
     cursor:pointer;
+    font-size:2vw;
 }
 .user-name{
+    font-size:3.5vw;
+    font-weight: bold;
     padding-bottom:2em;
 }
 .tag-header-timeline{
@@ -36,9 +39,5 @@
     border-bottom:1px solid black;
     border-right: 1px solid black; 
     padding:1em; 
-    
-}
-.active-tag{
-    
     
 }

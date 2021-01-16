@@ -59,7 +59,7 @@ export default function Lifeline(){
     return(
         <div className="row">            
             <div className="col-2 tag-filter-bar">
-             <h3 className="user-name">{displayName}</h3>
+             <span className="user-name">{displayName}</span>
              <TagList tagClick={addTag} id={displayId} tagArray={tagArray} page={"timeline"}/>
             </div>
             <div className="col-10 events">
