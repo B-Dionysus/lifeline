@@ -9,7 +9,6 @@ export default function NavBar(props){
       authContext.loadUser();
       // eslint-disable-next-line
     }, []);
-console.log(user);
     function share(){
         let tempURL= `${document.location.origin}?id=${user._id}`;
         navigator.clipboard.writeText(tempURL);

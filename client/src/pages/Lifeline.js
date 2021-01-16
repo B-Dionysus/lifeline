@@ -12,8 +12,6 @@ export default function Lifeline(){
     const [displayId, setDisplayId] = useState("5ff3b31590c73f4b98009673");
     const authContext = useContext(AuthContext);
     const { user } = authContext;
-
-    let userId;
     var tempName;
     useEffect(() => {    
         let temp="";
@@ -37,7 +35,6 @@ export default function Lifeline(){
     };
     // To filter the events, the user can click on on of the tags on the left-hand side of the screen
     function addTag(tagName){      // If no user is logged in, by deault load the following (currently set to Abraham Lincoln)
-
         // Move the description box out of the way
         let desc=document.getElementById("description-box");
         desc.style.top="0";

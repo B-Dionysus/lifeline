@@ -1,7 +1,6 @@
 import React from "react";
 export default function YearBlock(props){
     let percent=(props.index)/(props.total+1);    
-    console.log(props.total);
     let style={left:((percent*100))+"%"}
 
     return(

@@ -8,8 +8,6 @@ export default function Timeline(props){
     const [max, setMax] = useState(new Date());
     const [events, setEvents] = useState([]);
     let id=props.id;
-    let tagArray=props.tagArray;
-    // console.log(tagArray);
     useEffect(()=>{
         id=props.id;
         if(id) {
@@ -19,8 +17,7 @@ export default function Timeline(props){
     function closeDesc(){
         document.getElementById("description-box").style.display="none";
     }
-    function loadEvents(id){
-        
+    function loadEvents(id){        
         if(props.tagArray){
             API.getEventsByTag({userId:id, tagArray:props.tagArray, private:{$ne:true}})
             .then(res=>{
