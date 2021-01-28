@@ -1,7 +1,8 @@
 import React from "react";
 export default function EventBlock(props){
     let startingYear=new Date("01-01-"+props.min.getFullYear());
-    function showDesc(data){
+    function showDesc(data, event){
+        event.stopPropagation();
         // The description box that pops up when you click on the event block
         let descBox=document.getElementById("description-box");
         let descText=document.getElementById("desc-box-body");
@@ -12,9 +13,13 @@ export default function EventBlock(props){
         if(data.endDate)
             end=data.endDate.substring(5,7)+"/"+data.endDate.substring(8,10)+"/"+data.endDate.substring(0,4);
 
-        descBox.style.top=window.event.pageY-200+"px";
-        if(window.event.pageX/(window.innerWidth)>.5) descBox.style.left="5%";
-        else descBox.style.left="50%";
+        let newTop=window.event.pageY-200;
+        if(newTop<0) newTop=0;
+        descBox.style.top=newTop+"px";
+        if(window.innerWidth>1000){
+            if(window.event.pageX/(window.innerWidth)>.5) descBox.style.left="5%";
+            else descBox.style.left="50%";
+        }
         descText.innerHTML=`${start} — ${end}`;
         descText.innerHTML+="<hr />"+data.desc;
         descBox.style.display="block";

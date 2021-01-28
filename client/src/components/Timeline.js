@@ -15,6 +15,8 @@ export default function Timeline(props){
         }
     },[props]);
     function closeDesc(){
+
+        console.log("closeDesc");
         document.getElementById("description-box").style.display="none";
     }
     function loadEvents(id){        
@@ -70,7 +72,7 @@ export default function Timeline(props){
                 </div>
             </div>
             <div className="row">   
-                <div className="col-12 p-0">
+                <div onClick={closeDesc} className="col-12 p-0">
                 {events.map((elem, index)=>(
                     <EventBlock key={elem._id} data={elem} min={min} max={max} heightScale={heightScale} index={index}/>
                 ))}

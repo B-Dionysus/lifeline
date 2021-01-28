@@ -59,14 +59,16 @@
 }
 .description{
     position: absolute;
-    width: 29vw;
+    width: 80vw;
     top: 6vh;
-    left: 50vw;
+    left: 0px;
     height: 27vh;
     display:none;
 }
 .desc-box-header{
-    text-align:right;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
     height:3vh;
 }
 .fas{
@@ -74,6 +76,7 @@
 }
 #desc-title{
     margin-right: 2em;
+    overflow-x:hidden;
 }
 #desc-box-body{    
     padding:.1em;   
@@ -82,3 +85,9 @@
     padding-bottom:25px;
     overflow-y:auto; 
 }
+
+@media only screen and (min-width: 1000px) {
+    .description {
+      width:29vw;
+    }
+  }
